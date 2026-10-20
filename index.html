@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codespace — AI Pair-Programming Studio</title>
+
+  <!-- CodeMirror 5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/lint/lint.min.css" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="logo">
+        <span class="logo-icon">■</span>
+        <span class="logo-text">Codespace</span>
+        <span class="badge">Meta AI Hackathon</span>
+      </div>
+      <div class="topbar-actions">
+        <select id="language-select" title="Language">
+          <option value="javascript">JavaScript</option>
+          <option value="python">Python</option>
+          <option value="cpp">C++</option>
+          <option value="java">Java</option>
+        </select>
+        <button id="run-btn" class="btn primary">Run</button>
+        <button id="new-file-btn" class="btn">+ File</button>
+      </div>
+    </header>
+
+    <div class="main-layout">
+      <!-- File tabs + Editor -->
+      <section class="editor-pane">
+        <div id="file-tabs" class="file-tabs"></div>
+        <div id="editor-container"></div>
+      </section>
+
+      <!-- Terminal -->
+      <section class="terminal-pane">
+        <div class="pane-header">Terminal</div>
+        <div id="terminal" class="terminal"></div>
+        <div class="terminal-input-row">
+          <span class="prompt">></span>
+          <input id="terminal-input" type="text" placeholder="Program input (cin >> x style)..." autocomplete="off" />
+        </div>
+      </section>
+    </div>
+
+    <!-- Floating AI Assistant -->
+    <div id="ai-assistant" class="ai-assistant">
+      <div class="ai-header" id="ai-drag-handle">
+        <span class="ai-title">AI Pair Programmer</span>
+        <button id="ai-toggle" class="ai-toggle" title="Minimize">−</button>
+      </div>
+      <div class="ai-body">
+        <div id="diagnostics" class="diagnostics"></div>
+        <div id="chat-history" class="chat-history"></div>
+        <div class="chat-input-row">
+          <input id="chat-input" type="text" placeholder="Ask me to write code or fix a problem..." />
+          <button id="chat-send" class="btn primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CodeMirror -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/lint/lint.min.js"></script>
+
+  <!-- App modules -->
+  <script src="js/persistence.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/interpreter.js"></script>
+  <script src="js/linter.js"></script>
+  <script src="js/ai-assistant.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
