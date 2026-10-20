@@ -1,0 +1,27 @@
+{
+  "name": "Codespace AI Studio",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ritwickdey.LiveServer",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-python.python",
+        "ms-vscode.cpptools"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "liveServer.settings.port": 5500
+      }
+    }
+  },
+  "forwardPorts": [5500, 8080],
+  "postCreateCommand": "echo 'Codespace environment ready. Open index.html with Live Server or run: python -m http.server 8080'",
+  "remoteUser": "node"
+}
